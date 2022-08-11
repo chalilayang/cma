@@ -1,4 +1,4 @@
-package me.b20657yangyong.common
+package com.chalilayang.common
 
 actual fun getPlatformName(): String {
     return "Desktop"

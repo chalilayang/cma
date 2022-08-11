@@ -10,9 +10,6 @@ buildscript {
     }
 }
 
-group = "me.b20657yangyong"
-version = "1.0"
-
 allprojects {
     repositories {
         google()

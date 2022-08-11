@@ -6,9 +6,6 @@ plugins {
     id("com.android.library")
 }
 
-group = "me.b20657yangyong"
-version = "1.0"
-
 kotlin {
     android()
     jvm("desktop") {
@@ -25,20 +22,10 @@ kotlin {
                 api(compose.preview)
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
         val androidMain by getting {
             dependencies {
-                api("androidx.appcompat:appcompat:1.4.1")
-                api("androidx.core:core-ktx:1.7.0")
-            }
-        }
-        val androidTest by getting {
-            dependencies {
-                implementation("junit:junit:4.13.2")
+                api("androidx.appcompat:appcompat:1.5.0")
+                api("androidx.core:core-ktx:1.8.0")
             }
         }
         val desktopMain by getting {
@@ -46,19 +33,25 @@ kotlin {
                 api(compose.preview)
             }
         }
-        val desktopTest by getting
     }
 }
 
 android {
-    compileSdkVersion(31)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    compileSdk = 32
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(31)
+        minSdk = 21
+        targetSdk = 31
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    sourceSets {
+        named("main") {
+            manifest.srcFile("src/androidMain/AndroidManifest.xml")
+            res.srcDirs("src/androidMain/res")
+        }
     }
 }

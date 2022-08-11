@@ -1,3 +1,3 @@
-package me.b20657yangyong.common
+package com.chalilayang.common
 
 expect fun getPlatformName(): String

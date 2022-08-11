@@ -1,37 +1,26 @@
 plugins {
-    id("org.jetbrains.compose") version "1.1.0"
     id("com.android.application")
     kotlin("android")
+    id("org.jetbrains.compose")
 }
 
-group = "me.b20657yangyong"
-version = "1.0"
+android {
+    compileSdk = 32
 
-repositories {
-    jcenter()
+    defaultConfig {
+        minSdk = 21
+        targetSdk = 31
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 }
 
 dependencies {
     implementation(project(":common"))
-    implementation("androidx.activity:activity-compose:1.4.0")
-}
-
-android {
-    compileSdkVersion(31)
-    defaultConfig {
-        applicationId = "me.b20657yangyong.android"
-        minSdkVersion(24)
-        targetSdkVersion(31)
-        versionCode = 1
-        versionName = "1.0"
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
+    implementation("androidx.activity:activity-compose:1.5.1")
 }

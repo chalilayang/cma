@@ -1,6 +1,6 @@
-package me.b20657yangyong.android
+package com.chalilayang.android
 
-import me.b20657yangyong.common.App
+import com.chalilayang.common.App
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
